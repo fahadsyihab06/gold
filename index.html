@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Akademi Crypto - Platform edukasi dan riset crypto terdepan di Indonesia">
+    <title>Akademi Crypto - Belajar Crypto #1 di Indonesia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Reset & Variables */
+        :root {
+            --primary: #9c27b0;
+            --primary-hover: #ab47bc;
+            --background: #121212;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+            --transition: all 0.3s ease;
+            --neon-blue: #00f6ff;
+            --neon-red: #ff0000;
+            --dark-bg: #121212;
+            --text-primary: #E0E0E0;
+            --text-secondary: #A0A0A0;
+            --accent-color: #00f6ff;
+        }
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-red));
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* 		Header Styling */
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: transparent;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(19px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo Styling */
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--neon-blue);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-red));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover::after {
+            transform: translateX(0);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color : black-webkit-text-stroke #00f6ff solid;
+        }
+
+        .menu-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--neon-red);
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .menu-item:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .signup {
+            background-color: #1e1e1e;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--neon-blue);
+        }
+
+        .signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--neon-red);
+            background: var(--neon-blue);
+            color: var(--background);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 1.5rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+       h1 {
+       font-size: 3rem;
+       font-weight: 800;
+       margin-bottom: 1.5rem;
+       line-height: 1.2;
+       background: linear-gradient(45deg, #ffffff, #00f2ea, #ff0050);
+       -webkit-background-clip: text;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       animation: titleFade 1s ease-out;
+       }
+
+        @keyframes neonPulse {
+            from {
+                text-shadow: 0 0 5px var(--neon-red),
+                            0 0 10px var(--neon-red),
+                            0 0 20px var(--neon-red);
+            }
+            to {
+                text-shadow: 0 0 2px var(--neon-red),
+                            0 0 5px var(--neon-red),
+                            0 0 10px var(--neon-red);
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: var(--text);
+            max-width: 600px;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .cta-button {
+        display: inline-block; /* Pastikan tombol tetap horizontal */
+        padding: 1rem 2rem;
+        text-align: center;
+        white-space: nowrap; /* Mencegah teks memecah baris */
+        background-color: #1e1e1e;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 2px solid var(--neon-blue);
+        border-radius: 50px;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        text-decoration: none; /* Menghilangkan garis bawah */
+        }
+        
+        .cta-button:hover {
+        transform: translateY(-3px);
+        background-color: var(--neon-blue);
+        color: black;
+        box-shadow: 0 5px 15px var(--neon-red);
+        }
+        
+        .cta-button:active {
+        transform: scale(0.95);
+        background-color: var(--neon-blue);
+        box-shadow: none;
+        }
+        
+        @media (min-width: 769px) {
+        .cta-button {
+        width: auto; /* Pastikan tidak melebar pada mode desktop */
+        }
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--background);
+            padding: 6rem 1.5rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .feature-item {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 246, 255, 0.1);
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(0, 246, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--neon-red);
+            border-color: var(--neon-blue);
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
+        }
+
+        .feature-item h3 {
+            font-size: 1.25rem;
+            color: var(--neon-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+     .menu-btn {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: none;
+     border: 2px solid var(--neon-blue); /* Warna default: neon blue */
+     color: var(--text);
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     cursor: pointer;
+     transition: transform 0.3s ease, border-color 0.3s ease; /* Animasi transformasi dan warna */
+     z-index: 1001;
+     }
+     
+     .menu-btn.active {
+     transform: rotate(90deg); /* Rotasi saat aktif */
+     border-color: var(--neon-red); /* Warna saat aktif: neon red */
+     }
+     
+     .menu-btn:hover {
+     border-color: var(--neon-red); /* Warna saat hover: neon red */
+     }
+     
+     .menu-btn:not(.active) {
+     border-color: var(--neon-blue); /* Pastikan kembali ke neon blue jika tidak aktif */
+     }
+      
+      .nav-links {
+      position: fixed;
+      top: 70px;
+      right: -100%; /* Awalnya tersembunyi */
+      flex-direction: column;
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(8px);
+      width: 100%;
+      text-align: center;
+      padding: 2rem;
+      transition: transform 0.3s ease;
+      }
+      
+      .nav-links.active {
+      right: 0; /* Tampilkan menu saat aktif */
+      }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        /* Sembunyikan hamburger menu di desktop */
+        @media (min-width: 769px) {
+        .menu-btn {
+        display: none; /* Sembunyikan tombol garis tiga */
+        }
+        
+        .nav-links {
+        display: flex; /* Tampilkan menu secara horizontal */
+        flex-direction: row;
+        position: static; /* Atur posisi default */
+        background: none; /* Hapus latar belakang */
+        width: auto; /* Atur lebar sesuai konten */
+        padding: 0;
+        transform: none; /* Pastikan tidak ada transformasi */
+        }
+        
+        .nav-links a {
+        color: var(--text); /* Pastikan warna link terlihat */
+        padding: 0.5rem 1rem;
+        }
+        }
+        
+        /* Tampilkan hamburger menu di perangkat kecil */
+        @media (max-width: 768px) {
+        .menu-btn {
+        display: flex; /* Tampilkan tombol garis tiga */
+        }
+        
+        .nav-links {
+        display: none; /* Sembunyikan menu awalnya */
+        flex-direction: column; /* Susunan vertikal */
+        position: fixed;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: rgba(18, 18, 18, 0.95); /* Warna latar belakang */
+        padding: 2rem;
+        }
+        
+        .nav-links.active {
+        display: flex; /* Tampilkan menu saat aktif */
+        }
+        }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .neon-text {
+                font-size: 1.75rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 2rem;
+            }
+
+            .hero-image {
+                max-width: 300px;
+            }
+
+            .neon-text {
+                font-size: 1.5rem;
+            }
+
+            .cta-button {
+                padding: 0.875rem 1.75rem;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Styling for the WhatsApp icon pop-up */
+        .whatsapp-popup {
+        position: fixed;
+        bottom: 20px; /* Adjust the distance from the bottom */
+        right: 20px; /* Adjust the distance from the right */
+        z-index: 9999; /* Ensure it's on top of other elements */
+        }
+        
+        .whatsapp-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #25D366; /* WhatsApp green color */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-size: 30px;
+        color: white;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+        }
+        
+        /* Hover effect for the icon */
+        .whatsapp-icon:hover {
+        transform: scale(1.1);
+        }
+       
+       .logo-img {
+       width: 50px; /* Ukuran logo */
+       height: 50px; /* Ukuran logo */
+       border-radius: 50%; /* Membuat logo menjadi bulat */
+       object-fit: cover; /* Memastikan logo tetap proporsional */
+       border: 2px solid white; /* Opsional: Border pada logo */
+       margin-right: 10px; /* Jarak antara logo dan nama */
+       }
+       
+              .container1 {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card11 {
+            background: #121212;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 300px;
+            padding: 30px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+            transform: perspective(1000px);
+        }
+        .card11:hover {
+            transform: scale(1.05) rotateY(10deg);
+            box-shadow: 0 20px 40px var(--neon-red);
+            border-color: var(--neon-blue);
+        }
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+        .card-price {
+            font-size: 36px;
+            background: linear-gradient(45deg, #4ecdc4, #45b7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .feature i {
+            margin-right: 10px;
+        }
+        .feature-included {
+            color: #4ecdc4;
+        }
+        .feature-excluded {
+            color: #ff6b6b;
+            opacity: 0.6;
+        }
+        .buy-btn {
+            background: none;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(78, 205, 196, 0.4);
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+                .footer-container {
+            background-color: var(--dark-card);
+            width: 100%;
+            padding: 3rem 2rem;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 1rem;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            margin-right: 1rem;
+        }
+
+        .footer-logo h2 {
+            margin: 0;
+            color: var(--accent-color);
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+        display: flex;
+        flex-direction: column; /* Membuat elemen anak dalam kolom (rata ke bawah) */
+        gap: 0.5rem; /* Memberikan jarak antar tautan */
+        }
+
+       .footer-links a {
+       position: relative;
+       color: var(--text);
+       text-decoration: none;
+       padding: 0.5rem 0;
+       transition: color 0.3s ease;
+       }
+       
+       .footer-links a::after {
+       content: '';
+       position: absolute;
+       bottom: 0;
+       left: 50%;
+       width: 0;
+       height: 2px;
+       background: var(--neon-red);
+       transition: width 0.3s ease, left 0.3s ease;
+       }
+       
+       .footer-links a:hover {
+       color: var(--accent-color);
+       }
+       
+       .footer-links a:hover::after {
+       width: 100%;
+       left: 0;
+       }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                margin: 1rem 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+        .hero {
+        padding: 4rem 1.5rem; /* Pastikan elemen terpusat dengan jarak */
+        text-align: center;
+        }
+        
+        .hero-image {
+        width: 100%; /* Gunakan lebar penuh layar */
+        max-width: 300px; /* Tentukan batas maksimal */
+        margin: 0 auto; /* Pastikan elemen tetap di tengah */
+        }
+        
+        .nav-links {
+        flex-direction: column; /* Pastikan menu berbaris vertikal */
+        text-align: center;
+        gap: 1rem;
+        }
+        
+        .features-grid {
+        grid-template-columns: 1fr; /* Pastikan elemen menjadi 1 kolom */
+        gap: 1.5rem;
+        }
+        
+        .cta-button {
+        width: auto; /* Pastikan tombol tidak melar */
+        margin: 0 auto; /* Posisi tombol tetap di tengah */
+        }
+        
+        .footer-content {
+        flex-direction: column;
+        align-items: center;
+        }
+        
+        .card11 {
+        width: 90%; /* Pastikan kartu tidak terlalu besar */
+        margin: 0 auto;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header>
+         <img src="asset/logo.png" alt="Logo" class="logo-img">
+        <a href="#" class="logo">Goldjinak Crypto</a>
+        <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <nav class="nav-links">
+            <a href="#home" class="menu-item">Home</a>
+            <a href="#features" class="menu-item">Features</a>
+            <a href="#cardcontainer" class="menu-item">Card Container</a>
+            <a href="#login" class="menu-item">Login</a>
+            <a href="#" class="signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" data-aos="fade-up">
+        <img src="/api/placeholder/400/300" alt="Crypto image" class="hero-image">
+        <h1>Platform Edukasi dan Riset Crypto Terdepan di Indonesia</h1>
+        <p>Dapatkan akses ke market moving news, riset independen, dan ribuan modul pembelajaran untuk meningkatkan pemahaman Anda tentang crypto.</p>
+        <a href="#" class="cta-button">Join Now</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Kenapa Memilih Kami?</h2>
+        <div class="features-grid">
+            <div class="feature-item" data-aos="fade-right" data-aos-delay="100">
+                <h3>Pendidikan Berkualitas</h3>
+                <p>
+                    Kami menawarkan modul pembelajaran yang komprehensif dan mudah dipahami, 
+                    dari dasar hingga tingkat lanjut, sehingga Anda bisa belajar dengan cara 
+                    yang sesuai dengan kemampuan dan kebutuhan Anda.
+                </p>
+            </div>
+            <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>Riset Independen</h3>
+                <p>
+                    Dapatkan riset pasar yang mendalam dan independen untuk membantu Anda 
+                    mengambil keputusan investasi yang lebih baik, dengan wawasan dari 
+                    para ahli di industri kripto.
+                </p>
+            </div>
+            <div class="feature-item" data-aos="fade-left" data-aos-delay="300">
+                <h3>Komunitas Supportif</h3>
+                <p>
+                    Bergabung dengan komunitas kami untuk diskusi dan berbagi pengetahuan. 
+                    Dapatkan dukungan dari sesama anggota yang berbagi minat dan tujuan 
+                    yang sama dalam dunia kripto.
+                </p>
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div>
+        <h2>Pilih Kelas Crypto</h2>
+    <div class="container1" id="cardContainer">
+        <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <script>
+        const classes = [
+            {
+                name: 'Basic',
+                price: '$49',
+                features: [
+                    { text: 'Materi Dasar Kripto', included: true },
+                    { text: 'Video Tutorial', included: true },
+                    { text: 'Konsultasi Private', included: false },
+                    { text: 'Sertifikat', included: false }
+                ]
+            },
+            {
+                name: 'Standar',
+                price: '$99',
+                features: [
+                    { text: 'Materi Dasar Kripto', included: true },
+                    { text: 'Video Tutorial', included: true },
+                    { text: 'Konsultasi Private', included: true },
+                    { text: 'Sertifikat', included: false }
+                ]
+            },
+            {
+                name: 'Premium',
+                price: '$199',
+                features: [
+                    { text: 'Materi Dasar Kripto', included: true },
+                    { text: 'Video Tutorial', included: true },
+                    { text: 'Konsultasi Private', included: true },
+                    { text: 'Sertifikat', included: true }
+                ]
+            }
+        ];
+
+        function createCard(classInfo) {
+            const card = document.createElement('div');
+            card.classList.add('card11');
+            
+            const featuresList = classInfo.features.map(feature => `
+                <li class="feature">
+                    <i class="fas ${feature.included ? 'fa-check feature-included' : 'fa-times feature-excluded'}"></i>
+                    <span style="opacity: ${feature.included ? '1' : '0.6'}">${feature.text}</span>
+                </li>
+            `).join('');
+
+            card.innerHTML = `
+                <h2 class="card-title">${classInfo.name}</h2>
+                <div class="card-price">${classInfo.price}</div>
+                <ul class="feature-list">${featuresList}</ul>
+                <button class="buy-btn">Beli Sekarang</button>
+            `;
+
+            return card;
+        }
+
+        const container = document.getElementById('cardContainer');
+        classes.forEach(classInfo => {
+            container.appendChild(createCard(classInfo));
+        });
+        
+        // Seleksi tombol Join Now berdasarkan kelas
+        const ctaButton = document.querySelector('.cta-button');
+        
+        // Tambahkan event listener untuk klik pada tombol
+        ctaButton.addEventListener('click', (e) => {
+        e.preventDefault(); // Hindari aksi default (jika tombol ini memiliki tautan)
+        ctaButton.style.transform = 'none'; // Pastikan tidak ada transformasi
+        ctaButton.style.whiteSpace = 'nowrap'; // Pastikan teks tidak berubah ke bawah
+        });
+        
+        window.onload = function () {
+        // Pastikan elemen-elemen tertentu memiliki posisi yang benar sejak awal
+        const hero = document.querySelector('.hero');
+        const heroImage = document.querySelector('.hero-image');
+        const ctaButton = document.querySelector('.cta-button');
+        
+        // Pastikan hero image tetap di tengah
+        if (heroImage) {
+        heroImage.style.margin = '0 auto';
+        }
+        
+        // Pastikan tombol CTA responsif
+        if (ctaButton) {
+        ctaButton.style.margin = '0 auto';
+        }
+        
+        // Pastikan tampilan grid responsif sejak awal
+        const featuresGrid = document.querySelector('.features-grid');
+        if (featuresGrid) {
+        featuresGrid.style.display = 'grid';
+        featuresGrid.style.gridTemplateColumns = '1fr';
+        }
+        };
+    </script>
+    
+<!-- WhatsApp Icon Pop-up -->
+    <div class="whatsapp-popup">
+        <a href="https://wa.me/+62xxxxxxxxxx" target="_blank" class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+  <br>
+  <br>
+  <section>
+    <footer class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="asset/logo.png" alt="Logo Akademi Kripto">
+                    <h3>Goldjinak Academy</h3>
+                </div>
+                <p>Platform edukasi kripto terdepan untuk membangun masa depan keuangan digital Anda.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Explore More</h3>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#">Courses</a>
+                    <a href="#">Articles</a>
+                    <a href="#">Workshops</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="footer-section" id="contact">
+                <h3>Contact Us</h3>
+                <div class="footer-links">
+                    <p><i class="fas fa-envelope"></i> hello@kryptoacademy.id</p>
+                    <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Join Our Social Community</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2024 Kripto Academy. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+  </section>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize 
+        
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 0});
+
+        // Progress Bar Implementation
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        });
+
+        // Close menu when clicking menu items
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-links') && !e.target.closest('.menu-btn')) {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to menu items on scroll
+        const sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Add parallax effect to hero image
+        window.addEventListener('scroll', () => {
+            const heroImage = document.querySelector('.hero-image');
+            if (heroImage) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.5;
+                heroImage.style.transform = `translate3d(0px, ${rate}px, 0px)`;
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // Add resize handler for mobile menu
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('active');
+                menuBtn.classList.remove('active');
+            }
+        });
+
+        // Add hover effect for feature items
+        const featureItems = document.querySelectorAll('.feature-item');
+        featureItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add intersection observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-item, .hero-image, .neon-text').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Add custom cursor effect
+        cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add button hover effect
+        const buttons = document.querySelectorAll('.cta-button, .signup');
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function(e) {
+                const x = e.pageX - this.offsetLeft;
+                const y = e.pageY - this.offsetTop;
+                
+                this.style.setProperty('--x', x + 'px');
+                this.style.setProperty('--y', y + 'px');
+            });
+        });
+        
+        
+        
+    </script>
+</body>
+</html>
